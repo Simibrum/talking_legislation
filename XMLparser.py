@@ -1,36 +1,20 @@
 # Code for the legislation XML parser
-from typing import Dict, Any, Optional, List
-from bs4 import BeautifulSoup
+from typing import Dict, Any, List, Union
+
+from utils import fetch_xml
 
 
 class UKLegislationParser:
-    def __init__(self, path):
+    def __init__(self, base_url: str):
         # Initialize internal data structures
         self.metadata = {}
         self.contents = {}
         self.primary = {}
         self.commentaries = {}
 
-        # Read and parse XML
-        self._read_and_parse_xml(path)
-
-    def _read_and_parse_xml(self, path: str) -> None:
-        """
-        Read the XML content from the given path and initialize the BeautifulSoup object.
-
-        Parameters:
-            path (str): The path to the XML file.
-
-        Returns:
-            None
-        """
-        try:
-            with open(path, 'r', encoding='utf-8') as file:
-                xml_content = file.read()
-            self.soup = BeautifulSoup(xml_content, 'lxml-xml')
-        except Exception as e:
-            print(f"An error occurred: {e}")
-            self.soup = None
+        # Initialise the base url and fetch data
+        self.base_url = base_url
+        self.soup = fetch_xml(base_url)
 
     def _parse_metadata(self) -> None:
         """
@@ -121,10 +105,21 @@ class UKLegislationParser:
         # Populate self.commentaries
         pass
 
+    def _fetch_section_data(self):
+        """Fetch the XML data for each section and populate the corresponding dictionary."""
+        for part in self.contents['parts']:
+            for block in part['blocks']:
+                for item in block['items']:
+                    uri = item['DocumentURI']
+                    xml_data = fetch_xml(uri)
+                    item['xml_data'] = xml_data
+
     def get_metadata(self):
         return self.metadata
 
     def get_contents(self):
         return self.contents
+
+
 
     # ... more public methods

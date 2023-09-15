@@ -1,3 +1,5 @@
+"""Tests for the XMLParser class."""
+
 
 from XMLparser import UKLegislationParser
 
@@ -9,7 +11,7 @@ def test_read_and_parse_xml() -> None:
     Returns:
         None
     """
-    parser = UKLegislationParser('test_xml.xml')
+    parser = UKLegislationParser('https://www.legislation.gov.uk/ukpga/1977/37/contents/')
     assert parser.soup is not None, "Failed to read and parse XML"
 
 
@@ -20,7 +22,7 @@ def test_parse_metadata() -> None:
     Returns:
         None
     """
-    parser = UKLegislationParser('test_xml.xml')
+    parser = UKLegislationParser('https://www.legislation.gov.uk/ukpga/1977/37/contents/')
     parser._parse_metadata()
     assert len(parser.metadata) > 0, "Failed to parse metadata"
 
@@ -32,7 +34,7 @@ def test_parse_contents() -> None:
     Returns:
         None
     """
-    parser = UKLegislationParser('test_xml.xml')
+    parser = UKLegislationParser('https://www.legislation.gov.uk/ukpga/1977/37/contents/')
     parser._parse_contents()
     assert len(parser.contents) > 0, "Failed to parse contents"
     assert 'parts' in parser.contents, "Failed to parse parts"
@@ -47,7 +49,7 @@ def test_check_sections() -> None:
     Returns:
         None
     """
-    parser = UKLegislationParser('test_xml.xml')
+    parser = UKLegislationParser('https://www.legislation.gov.uk/ukpga/1977/37/contents/')
     parser._parse_contents()
 
     # Define the expected section numbers

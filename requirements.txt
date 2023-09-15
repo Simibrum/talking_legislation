@@ -1,5 +1,8 @@
 beautifulsoup4
 lxml
 
+requests
+
 pytest
+pytest-mock
 black
