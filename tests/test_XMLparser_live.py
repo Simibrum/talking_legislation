@@ -22,7 +22,10 @@ def test_parse_metadata() -> None:
     Returns:
         None
     """
-    parser = UKLegislationParser('https://www.legislation.gov.uk/ukpga/1977/37/contents/')
+    parser = UKLegislationParser(
+        'https://www.legislation.gov.uk/ukpga/1977/37/contents/',
+        parse_contents=False
+    )
     parser._parse_metadata()
     assert len(parser.metadata) > 0, "Failed to parse metadata"
 
@@ -34,7 +37,10 @@ def test_parse_contents() -> None:
     Returns:
         None
     """
-    parser = UKLegislationParser('https://www.legislation.gov.uk/ukpga/1977/37/contents/')
+    parser = UKLegislationParser(
+        'https://www.legislation.gov.uk/ukpga/1977/37/contents/',
+        parse_contents=False
+    )
     parser._parse_contents()
     assert len(parser.contents) > 0, "Failed to parse contents"
     assert 'parts' in parser.contents, "Failed to parse parts"
@@ -49,7 +55,11 @@ def test_check_sections() -> None:
     Returns:
         None
     """
-    parser = UKLegislationParser('https://www.legislation.gov.uk/ukpga/1977/37/contents/')
+    parser = UKLegislationParser(
+        'https://www.legislation.gov.uk/ukpga/1977/37/contents/',
+        parse_contents=False
+    )
+
     parser._parse_contents()
 
     # Define the expected section numbers

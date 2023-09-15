@@ -6,7 +6,12 @@ from utils import fetch_xml, parse_recursive, flatten_text
 
 
 class UKLegislationParser:
-    def __init__(self, base_url: str):
+    def __init__(
+            self,
+            base_url: str,
+            parse_contents: bool = True,
+            parse_sections: bool = False
+    ):
         # Initialize internal data structures
         self.metadata = {}
         self.contents = {}
@@ -18,14 +23,14 @@ class UKLegislationParser:
         self.soup = fetch_xml(base_url)
 
         # Parse the XML data
-        self._parse_metadata()
-        self._parse_contents()
-        self._parse_primary()
-        self._parse_commentaries()
+        if parse_contents:
+            self._parse_metadata()
+            self._parse_contents()
+            self._parse_primary()
+            self._parse_commentaries()
 
-        # Fetch and parse the XML data for each section
-        self._fetch_section_data()
-        self._parse_section_data()
+        if parse_sections:
+            self._parse_sections()
 
     def _parse_metadata(self) -> None:
         """
@@ -35,7 +40,7 @@ class UKLegislationParser:
             None
         """
         metadata_element = self.soup.find('Metadata')
-        if metadata_element is None:
+        if metadata_element is None or metadata_element == -1:
             print("Metadata section not found in XML.")
             return
 
@@ -50,7 +55,7 @@ class UKLegislationParser:
             None
         """
         contents_element = self.soup.find('Contents')
-        if contents_element is None:
+        if contents_element is None or contents_element == -1:
             print("Contents section not found in XML.")
             return
 
@@ -141,6 +146,12 @@ class UKLegislationParser:
                     item['parsed_data'] = parsed_data
                     # Flatten the text
                     item['flattened_text'] = flatten_text(parsed_data['text'])
+
+    def _parse_sections(self):
+        """Fetch and parse the sections."""
+        # Fetch and parse the XML data for each section
+        self._fetch_section_data()
+        self._parse_section_data()
 
     def get_metadata(self):
         return self.metadata
