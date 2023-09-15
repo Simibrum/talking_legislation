@@ -1,7 +1,8 @@
 # Code for the legislation XML parser
 from typing import Dict, Any, List, Union
+import pickle
 
-from utils import fetch_xml
+from utils import fetch_xml, parse_recursive, flatten_text
 
 
 class UKLegislationParser:
@@ -15,6 +16,16 @@ class UKLegislationParser:
         # Initialise the base url and fetch data
         self.base_url = base_url
         self.soup = fetch_xml(base_url)
+
+        # Parse the XML data
+        self._parse_metadata()
+        self._parse_contents()
+        self._parse_primary()
+        self._parse_commentaries()
+
+        # Fetch and parse the XML data for each section
+        self._fetch_section_data()
+        self._parse_section_data()
 
     def _parse_metadata(self) -> None:
         """
@@ -114,12 +125,36 @@ class UKLegislationParser:
                     xml_data = fetch_xml(uri)
                     item['xml_data'] = xml_data
 
+    def _parse_section_data(self):
+        """Parse the XML data for each section and populate the corresponding dictionary."""
+        for part in self.contents['parts']:
+            for block in part['blocks']:
+                for item in block['items']:
+                    xml_data = item['xml_data']
+                    # Get the title of the section
+                    title_element = xml_data.select_one('P1group > Title')
+                    title_text = title_element.text.strip() if title_element else None
+                    item['title'] = title_text
+                    # Get the P1 element and parse it recursively
+                    primary_element = xml_data.find('P1')
+                    parsed_data = parse_recursive(primary_element)
+                    item['parsed_data'] = parsed_data
+                    # Flatten the text
+                    item['flattened_text'] = flatten_text(parsed_data['text'])
+
     def get_metadata(self):
         return self.metadata
 
     def get_contents(self):
         return self.contents
 
+    def save(self, filename: str = "parser.pkl"):
+        """Save the object to a pickle file."""
+        with open(filename, 'wb') as f:
+            pickle.dump(self, f)
 
-
-    # ... more public methods
+    @classmethod
+    def load(cls, filename: str = "parser.pkl"):
+        """Load the object from a pickle file."""
+        with open(filename, 'rb') as f:
+            return pickle.load(f)

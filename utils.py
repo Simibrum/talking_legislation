@@ -148,3 +148,32 @@ def parse_recursive(element: Union[Tag, None], depth: int = 1) -> Union[Dict, Li
                             parsed_data['text'].append(text)
 
     return parsed_data
+
+
+# Define the function to flatten the nested data structure and generate a text representation.
+def flatten_text(data: dict, prefix: str = '', depth: int = 0) -> str:
+    """
+    Flattens a nested data structure to generate a text representation that includes the labels and text.
+
+    Parameters:
+        data (dict): The nested data structure containing 'text' and 'label' keys.
+        prefix (str): The current prefix for the labels. Defaults to an empty string.
+        depth (int): The current depth in the nested structure. Defaults to 0.
+
+    Returns:
+        str: The flattened text representation.
+    """
+    output = []
+    if 'label' in data:
+        # Don't add the first level - this is the section number and we will add separately with title
+        if depth != 0:
+            prefix = f"{prefix}{data['label']}) " if prefix else f"{data['label']}) "
+    if 'text' in data:
+        for item in data['text']:
+            if isinstance(item, dict):
+                output.append(flatten_text(item, prefix=prefix, depth=depth + 1))
+            else:
+                indent = '    ' * depth
+                output.append(f"{indent}{prefix}{item}")
+                prefix = ''
+    return '\n'.join(output)
