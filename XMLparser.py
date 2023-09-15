@@ -145,7 +145,8 @@ class UKLegislationParser:
                     parsed_data = parse_recursive(primary_element)
                     item['parsed_data'] = parsed_data
                     # Flatten the text
-                    item['flattened_text'] = flatten_text(parsed_data['text'])
+                    flattened_text = flatten_text(parsed_data)
+                    item['flattened_text'] = f"{item['number']}. {item['title']}\n\n{flattened_text}"
 
     def _parse_sections(self):
         """Fetch and parse the sections."""
@@ -158,6 +159,15 @@ class UKLegislationParser:
 
     def get_contents(self):
         return self.contents
+
+    def get_section_strings(self) -> List[str]:
+        """Return a list of sections as strings."""
+        sections = []
+        for part in self.contents['parts']:
+            for block in part['blocks']:
+                for item in block['items']:
+                    sections.append(item['flattened_text'])
+        return sections
 
     def save(self, filename: str = "parser.pkl"):
         """Save the object to a pickle file."""
