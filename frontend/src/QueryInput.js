@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-const QueryInput = ({ onQuerySubmit }) => {
-  const [query, setQuery] = useState('');
+const QueryInput = ({ setUserQuery }) => {
+  const [localQuery, setLocalQuery] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onQuerySubmit(query);
+  const handleInputChange = (e) => {
+    setLocalQuery(e.target.value);
+  };
+
+  const handleButtonClick = () => {
+    setUserQuery(localQuery);
   };
 
   return (
@@ -18,10 +21,15 @@ const QueryInput = ({ onQuerySubmit }) => {
         placeholder="Ask your question here..."
         aria-label="Ask your question here..."
         aria-describedby="button-addon2"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        value={localQuery}
+        onChange={handleInputChange}
       />
-      <button className="btn btn-outline-secondary" type="submit" id="button-addon2" onClick={handleSubmit}>
+      <button
+        className="btn btn-outline-secondary"
+        type="submit"
+        id="button-addon2"
+        onClick={handleButtonClick}
+      >
         <i className="fas fa-search"></i>
       </button>
     </div>

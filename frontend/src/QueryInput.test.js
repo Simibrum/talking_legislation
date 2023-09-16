@@ -1,6 +1,6 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
-import QueryInput from './QueryInput'; // Adjust this import to your file structure
+import { render, screen, fireEvent } from '@testing-library/react';
+import QueryInput from './QueryInput';
 
 test('renders QueryInput with input and button', () => {
   const { getByPlaceholderText, getByRole } = render(<QueryInput />);
@@ -26,3 +26,17 @@ test('allows text to be typed into input', () => {
 });
 
 // Add any additional tests like button click behavior, etc.
+
+
+test('calls setUserQuery on submit', () => {
+  const mockSetUserQuery = jest.fn();
+  render(<QueryInput setUserQuery={mockSetUserQuery} />);
+
+  const inputElement = screen.getByPlaceholderText("Ask your question here...");
+  const buttonElement = screen.getByRole("button");
+
+  fireEvent.change(inputElement, { target: { value: 'What is the meaning of life?' } });
+  fireEvent.click(buttonElement);
+
+  expect(mockSetUserQuery).toHaveBeenCalledWith('What is the meaning of life?');
+});

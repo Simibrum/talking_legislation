@@ -1,3 +1,6 @@
 # Requirements for Web App
 fastapi
 uvicorn
+
+# Testing
+pytest
