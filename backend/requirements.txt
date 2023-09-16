@@ -1,0 +1,3 @@
+# Requirements for Web App
+fastapi
+uvicorn
