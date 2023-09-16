@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import QueryInput from './QueryInput';
+import QueryInput from '../QueryInput';
 
 test('renders QueryInput with input and button', () => {
   const { getByPlaceholderText, getByRole } = render(<QueryInput />);

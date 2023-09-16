@@ -2,7 +2,7 @@
 from typing import Dict, Any, List, Union
 import pickle
 
-from utils import fetch_xml, parse_recursive, flatten_text
+from common_logic.utils import fetch_xml, parse_recursive, flatten_text
 
 
 class UKLegislationParser:

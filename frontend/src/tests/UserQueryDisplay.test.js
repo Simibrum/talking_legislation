@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import UserQueryDisplay from './UserQueryDisplay';  // Adjust this import to your file structure
+import UserQueryDisplay from '../UserQueryDisplay';  // Adjust this import to your file structure
 
 test('renders UserQueryDisplay with title and output', () => {
   const titleName = 'You asked...';

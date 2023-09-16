@@ -1,7 +1,7 @@
 """Tests for the XMLParser class."""
 
 
-from XMLparser import UKLegislationParser
+from common_logic.XMLparser import UKLegislationParser
 
 
 def test_read_and_parse_xml() -> None:

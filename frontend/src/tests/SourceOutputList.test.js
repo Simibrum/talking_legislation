@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import SourceOutputList from './SourceOutputList';
+import SourceOutputList from '../SourceOutputList';
 
 test('renders a list of sources', () => {
   const sources = [

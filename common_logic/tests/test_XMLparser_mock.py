@@ -2,7 +2,7 @@
 
 import pytest
 from bs4 import BeautifulSoup
-from XMLparser import UKLegislationParser
+from common_logic.XMLparser import UKLegislationParser
 
 
 @pytest.fixture(autouse=True)
@@ -12,7 +12,9 @@ def mock_fetch_xml(mocker):
             return file.read()
 
     test_xml_content = read_test_xml_file('test_xml.xml')
-    mocker.patch('XMLparser.fetch_xml', return_value=BeautifulSoup(test_xml_content, 'lxml-xml'))
+    mocker.patch(
+        'common_logic.XMLparser.fetch_xml',
+        return_value=BeautifulSoup(test_xml_content, 'lxml-xml'))
 
 
 def test_read_and_parse_xml() -> None:
@@ -130,7 +132,7 @@ def mock_contents():
 def mock_fetch_simple_xml(mocker):
     """Mock fetch_xml method to return a dummy BeautifulSoup object."""
     mock_xml = "<xml>Dummy Data</xml>"
-    return mocker.patch('XMLparser.fetch_xml', return_value=mock_xml)
+    return mocker.patch('common_logic.XMLparser.fetch_xml', return_value=mock_xml)
 
 
 def test_fetch_section_data(mock_fetch_simple_xml, mock_contents):

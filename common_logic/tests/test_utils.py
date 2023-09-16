@@ -1,9 +1,7 @@
 """Test for utility functions in utils.py."""
 
-import pytest
 from bs4 import BeautifulSoup
-from utils import fetch_xml, parse_recursive, flatten_text
-
+from common_logic.utils import fetch_xml, parse_recursive, flatten_text
 
 
 def test_fetch_xml_success(mocker):
