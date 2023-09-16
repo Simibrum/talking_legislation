@@ -11,10 +11,25 @@ app = FastAPI()
 executor = ThreadPoolExecutor()
 
 
-def slow_function(query: str) -> str:
+def slow_function(query: str) -> dict:
     import time
     time.sleep(5)  # Simulate slow logic
-    return f"Processed query: {query}"
+    # Simulate a result
+    result = f"Your query was: {query}"
+    sources = [
+        {"text": "Source 1", "citation": "Citation 1"},
+        {"text": "Source 2", "citation": "Citation 2"},
+        {"text": "Source 3", "citation": "Citation 3"}
+    ]
+
+    # Prepare the response
+    response = {
+        "query": query,
+        "result": result,
+        "sources": sources,
+        "state": "SUCCESS"
+    }
+    return response
 
 
 async def run_in_executor(func, *args):
@@ -31,7 +46,15 @@ async def websocket_endpoint(websocket: WebSocket):
             query_data = json.loads(data)  # Assume you're receiving JSON and it contains a 'query' field
             query = query_data.get('query')
 
-            await websocket.send_text(f"Processing query: {query}")
+            # Prepare preliminary response
+            response = {
+                "query": query,
+                "result": None,
+                "sources": [],
+                "state": "PROCESSING"
+            }
+
+            await websocket.send_json(response)
 
             # Run the slow function asynchronously
             task = asyncio.create_task(run_in_executor(slow_function, query))
@@ -39,7 +62,7 @@ async def websocket_endpoint(websocket: WebSocket):
             # Wait for it to complete and get the result
             result = await task
 
-            await websocket.send_text(f"Result: {result}")
+            await websocket.send_json(result)
     except WebSocketDisconnect:
         pass
     finally:

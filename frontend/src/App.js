@@ -1,20 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import QueryInput from "./QueryInput";
 import UserQueryDisplay from './UserQueryDisplay';
-import SourceOutputList from './SourceOutputList';
-
-const sourcesData = [
-    {text: 'Some legal text 1', citation: 'Section 1.1'},
-    {text: 'Some legal text 2', citation: 'Section 1.2'},
-    // more sources
-];
+import SourceOutputList from "./SourceOutputList";
 
 function App() {
-    // Test data
 
     const [userQuery, setUserQuery] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const [response, setResponse] = useState(null);
+    const [response, setResponse] = useState({
+        query: "",
+        result: "",
+        sources: [],
+        state: ""
+    });
+    const [isDataReceived, setIsDataReceived] = useState(false);
+
 
     useEffect(() => {
         if (!userQuery) return; // Don't open a WebSocket if there's no query
@@ -29,8 +29,23 @@ function App() {
 
         ws.onmessage = (event) => {
             console.log(`Server says: ${event.data}`);
-            setResponse(event.data);
-            setIsLoading(false);
+            const receivedData = JSON.parse(event.data);
+            switch (receivedData.state) {
+                case "PROCESSING":
+                    setIsLoading(true);
+                    break;
+                case "SUCCESS":
+                    setResponse(receivedData);
+                    setIsLoading(false);
+                    setIsDataReceived(true);
+                    break;
+                case "":
+                    setIsLoading(true);
+                    break;
+                default:
+                    setIsLoading(false);
+                    console.error("Unexpected state received");
+            }
         };
 
         ws.onerror = (error) => {
@@ -50,11 +65,18 @@ function App() {
                 <h1>Legislation Query</h1>
             </header>
             <main>
-                <QueryInput setUserQuery={setUserQuery} />
+                <QueryInput setUserQuery={setUserQuery}/>
                 <hr/>
-                <UserQueryDisplay titleName="You asked..." output={userQuery}/>
-                <hr/>
-                <SourceOutputList sources={sourcesData}/>
+                {isLoading ? ( // Conditional rendering based on isLoading state
+                    <div>Loading...</div> // Your loading screen here
+                ) : isDataReceived ? (
+                    <>
+                        <UserQueryDisplay titleName="You asked..." output={response.query}/>
+                        <hr/>
+                        <UserQueryDisplay titleName="The legislation answered..." output={response.result}/>
+                        <SourceOutputList sources={response.sources || []}/>
+                    </>
+                ) : null}
             </main>
         </div>
     );
