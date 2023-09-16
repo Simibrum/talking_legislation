@@ -3,6 +3,7 @@
 import asyncio
 import json
 from concurrent.futures import ThreadPoolExecutor
+from starlette.websockets import WebSocketState
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 
 app = FastAPI()
@@ -42,7 +43,8 @@ async def websocket_endpoint(websocket: WebSocket):
     except WebSocketDisconnect:
         pass
     finally:
-        await websocket.close()
+        if websocket.application_state == WebSocketState.CONNECTED:
+            await websocket.close()
 
 
 @app.get("/")
