@@ -90,7 +90,8 @@ async def websocket_endpoint(websocket: WebSocket):
     except WebSocketDisconnect:
         pass
     finally:
-        if websocket.application_state == WebSocketState.CONNECTED:
+        if websocket.application_state == WebSocketState.CONNECTED \
+                and websocket.client_state == WebSocketState.CONNECTED:
             await websocket.close()
 
 

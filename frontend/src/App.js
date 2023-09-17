@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useCallback} from 'react';
 import QueryInput from "./QueryInput";
 import UserQueryDisplay from './UserQueryDisplay';
 import SourceOutputList from "./SourceOutputList";
@@ -14,10 +14,29 @@ function App() {
         state: ""
     });
     const [isDataReceived, setIsDataReceived] = useState(false);
+    const [isReset, setIsReset] = useState(false);
+    let webSocket;
 
+    const resetApp = useCallback(() => {
+        // Close WebSocket if it's open
+        if (webSocket && webSocket.readyState === WebSocket.OPEN) {
+            webSocket.close();
+        }
+
+        // Reset state variables to initial values
+        setIsLoading(false);
+        setUserQuery('');
+        setIsDataReceived(false);
+        setResponse({query: '', result: '', sources: [], state: ''});
+    }, [webSocket]);
 
     useEffect(() => {
         if (!userQuery) return; // Don't open a WebSocket if there's no query
+        if (isReset) {
+            setIsReset(false);
+            resetApp();
+            return;
+        }
 
         const ws = new WebSocket('ws://localhost:8000/ws');
 
@@ -54,9 +73,18 @@ function App() {
         };
 
         return () => {
-            ws.close();
+            // Cleanup: Close WebSocket if it's open
+            if (webSocket && webSocket.readyState === WebSocket.OPEN) {
+                webSocket.close();
+            }
         };
-    }, [userQuery]);
+    }, [userQuery, isReset, webSocket]);
+
+
+    const handleReset = () => {
+        setIsReset(true);
+        resetApp();
+    };
 
     // Output
     return (
@@ -65,7 +93,7 @@ function App() {
                 <h1>Ask the Patents Act</h1>
             </header>
             <main>
-                <QueryInput setUserQuery={setUserQuery}/>
+                <QueryInput setUserQuery={setUserQuery} resetApp={handleReset}/>
                 <hr/>
                 {isLoading ? ( // Conditional rendering based on isLoading state
                     <div>Loading...</div> // Your loading screen here
