@@ -2,8 +2,8 @@
 from typing import Dict, Any, List
 import pickle
 
-from backend.common_logic.utils import fetch_xml, parse_recursive, flatten_text, url_to_filename
-from backend.config import DATA_DIR
+from common_logic.utils import fetch_xml, parse_recursive, flatten_text, url_to_filename
+from config import DATA_DIR
 
 class UKLegislationParser:
     def __init__(

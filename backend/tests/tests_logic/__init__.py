@@ -1,3 +1,5 @@
-import os
+from pathlib import Path
 
-CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+# Define a data folder using a relative path
+CURRENT_DIR = Path(__file__).parent
+

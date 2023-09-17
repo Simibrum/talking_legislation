@@ -1,19 +1,17 @@
 import logging
 import pickle
-from langchain.document_loaders.csv_loader import CSVLoader
-from langchain.document_loaders import JSONLoader
 from langchain.embeddings import CacheBackedEmbeddings
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.storage import LocalFileStore
-from langchain.llms.openai import OpenAIChat
+from langchain.chat_models import ChatOpenAI
 from langchain.chains import RetrievalQA
 from langchain.callbacks import StdOutCallbackHandler
 from langchain.schema.document import Document
 
-from backend.config import logger, DATA_DIR
-from backend.common_logic.XMLparser import UKLegislationParser
-from backend.common_logic.utils import url_to_filename
+from config import logger, DATA_DIR
+from common_logic.XMLparser import UKLegislationParser
+from common_logic.utils import url_to_filename
 
 class DataSource:
     def __init__(self):
@@ -21,12 +19,14 @@ class DataSource:
         self.logger.info("Initializing data source")
 
         self.data = None
-
+        self.logger.info("Creating local file store")
         # Initialize common functionalities
-        self.store = LocalFileStore("../embeddings_cache/")
+        embeddings_cache_dir = DATA_DIR / "embeddings_cache/"
+        self.store = LocalFileStore(embeddings_cache_dir)
+        self.logger.info("Initialising OpenAI Embeddings and Chat")
         # Use the OpenAIEmbeddings model - means it's easier to host remotely as we don't need a GPU
         self.core_embedding_model = OpenAIEmbeddings()
-        self.llm = OpenAIChat()
+        self.llm = ChatOpenAI()
 
         # Initialize these after data is loaded
         self.embedder = None
@@ -41,7 +41,7 @@ class DataSource:
         self.embedder = CacheBackedEmbeddings.from_bytes_store(
             self.core_embedding_model,
             self.store,
-            namespace=self.core_embedding_model.model_name
+            namespace=self.core_embedding_model.model
         )
         self.logger.info("Storing embeddings in vector store")
         self.vectorstore = FAISS.from_documents(self.data, self.embedder)
@@ -83,13 +83,14 @@ class LegislationDataSource(DataSource):
             self.parser = UKLegislationParser(self.url, parse_sections=True)
             self.logger.info("Saving parser to cache")
             self.parser.save()
-            self.data = [
-                Document(
-                    page_content=x['flattened_text'],
-                    metadata={
-                        "title": x['title'],
-                        "section": x['number'],
-                        "source": x['DocumentURI']
-                    }
-                ) for x in self.parser.get_section_dicts()]
+        # Get documents from the parser
+        self.data = [
+            Document(
+                page_content=x['flattened_text'],
+                metadata={
+                    "title": x['title'],
+                    "section": x['number'],
+                    "source": x['DocumentURI']
+                }
+            ) for x in self.parser.get_section_dicts()]
         self.post_data_load_setup()

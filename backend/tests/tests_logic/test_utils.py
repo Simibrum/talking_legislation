@@ -1,10 +1,10 @@
 """Test for utility functions in utils.py."""
 import os
 from bs4 import BeautifulSoup
-from backend.common_logic.utils import (
+from common_logic.utils import (
     fetch_xml, parse_recursive, flatten_text, url_to_filename
 )
-from backend.tests.tests_logic import CURRENT_DIR
+from tests.tests_logic import CURRENT_DIR
 
 def test_fetch_xml_success(mocker):
     mocker.patch('requests.get', return_value=mocker.Mock(status_code=200, content='<xml><tag>content</tag></xml>'))

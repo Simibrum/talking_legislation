@@ -1,4 +1,4 @@
-from backend.config.init_logger import logger
+from config.init_logger import logger
 from pathlib import Path
 
 # Define a data folder using a relative path
