@@ -1,8 +1,8 @@
 # Code for the legislation XML parser
-from typing import Dict, Any, List, Union
+from typing import Dict, Any, List
 import pickle
 
-from common_logic.utils import fetch_xml, parse_recursive, flatten_text
+from backend.common_logic.utils import fetch_xml, parse_recursive, flatten_text
 
 
 class UKLegislationParser:

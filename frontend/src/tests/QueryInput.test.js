@@ -25,7 +25,7 @@ test('allows text to be typed into input', () => {
   expect(inputElement.value).toBe('What is the meaning of life?');
 });
 
-// Add any additional tests like button click behavior, etc.
+// Add any additional tests_logic like button click behavior, etc.
 
 
 test('calls setUserQuery on submit', () => {

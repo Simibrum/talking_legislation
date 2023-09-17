@@ -1,8 +1,8 @@
 """Test for utility functions in utils.py."""
-
+import os
 from bs4 import BeautifulSoup
-from common_logic.utils import fetch_xml, parse_recursive, flatten_text
-
+from backend.common_logic.utils import fetch_xml, parse_recursive, flatten_text
+from backend.tests.tests_logic import CURRENT_DIR
 
 def test_fetch_xml_success(mocker):
     mocker.patch('requests.get', return_value=mocker.Mock(status_code=200, content='<xml><tag>content</tag></xml>'))
@@ -24,7 +24,8 @@ def test_fetch_xml_exception(mocker):
 
 
 def test_parse_recursive():
-    with open('test_section.xml', 'r') as f:
+    full_path = os.path.join(CURRENT_DIR, 'test_section.xml')
+    with open(full_path, 'r') as f:
         soup = BeautifulSoup(f, 'lxml-xml')
 
     # primary_element = soup.find('Primary')
@@ -51,7 +52,8 @@ def test_parse_recursive():
     for i, item in enumerate(parsed_data['text'], start=1):
         assert item['label'] == str(i)
 
-    with open('test_section_2.xml', 'r') as f:
+    full_path2 = os.path.join(CURRENT_DIR, 'test_section_2.xml')
+    with open(full_path2, 'r') as f:
         soup = BeautifulSoup(f, 'lxml-xml')
 
     primary_element = soup.find('P1')
