@@ -1,5 +1,6 @@
 """Common utility functions."""
 
+import re
 from bs4 import BeautifulSoup, Tag
 import requests
 from typing import Union, Dict, List
@@ -177,3 +178,21 @@ def flatten_text(data: dict, prefix: str = '', depth: int = 0) -> str:
                 output.append(f"{indent}{prefix}{item}")
                 prefix = ''
     return '\n'.join(output)
+
+def url_to_filename(url: str) -> str:
+    """
+    Convert a URL into a safe file name for saving on Linux.
+
+    Parameters:
+    - url (str): The URL to convert.
+
+    Returns:
+    - str: A safe file name derived from the URL.
+    """
+    # Remove the 'https://' part
+    clean_url = re.sub(r"https?://", "", url)
+
+    # Replace any character that's not alphanumeric or underscore with an underscore
+    safe_name = re.sub(r"[^\w]", "_", clean_url)
+
+    return safe_name

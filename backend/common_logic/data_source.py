@@ -1,4 +1,5 @@
 import logging
+import pickle
 from langchain.document_loaders.csv_loader import CSVLoader
 from langchain.document_loaders import JSONLoader
 from langchain.embeddings import CacheBackedEmbeddings
@@ -8,15 +9,17 @@ from langchain.storage import LocalFileStore
 from langchain.llms.openai import OpenAIChat
 from langchain.chains import RetrievalQA
 from langchain.callbacks import StdOutCallbackHandler
+from langchain.schema.document import Document
 
-from backend.config import logger
+from backend.config import logger, DATA_DIR
+from backend.common_logic.XMLparser import UKLegislationParser
+from backend.common_logic.utils import url_to_filename
 
 class DataSource:
-    def __init__(self, url: str):
+    def __init__(self):
         self.logger = logger
         self.logger.info("Initializing data source")
 
-        self.url = url
         self.data = None
 
         # Initialize common functionalities
@@ -53,3 +56,40 @@ class DataSource:
     def get_answers_and_documents(self, query):
         self.logger.info("Getting answers and documents")
         return self.qa_chain({"query": query})
+
+class LegislationDataSource(DataSource):
+    def __init__(self, url: str):
+        super().__init__()
+        self.url = url
+        self.parser = None
+
+    def load_data(self, use_cache: bool = True):
+        """Initialise loading of data."""
+        self.logger.info(f"Loading legislation data from {self.url}")
+        if use_cache:
+            # Check if there is a file created from the url
+            filename = url_to_filename(self.url) + ".pkl"
+            full_path = DATA_DIR / filename
+            try:
+                self.logger.info(f"Attempting to load cached parser from {filename}")
+                with open(full_path, "rb") as f:
+                    self.parser = pickle.load(f)
+                self.logger.info("Loaded cached parser")
+            except FileNotFoundError:
+                self.logger.info("Cached parser not found, parsing XML")
+                use_cache = False
+        if not use_cache:
+            self.logger.info("Parsing XML from URL")
+            self.parser = UKLegislationParser(self.url, parse_sections=True)
+            self.logger.info("Saving parser to cache")
+            self.parser.save()
+            self.data = [
+                Document(
+                    page_content=x['flattened_text'],
+                    metadata={
+                        "title": x['title'],
+                        "section": x['number'],
+                        "source": x['DocumentURI']
+                    }
+                ) for x in self.parser.get_section_dicts()]
+        self.post_data_load_setup()

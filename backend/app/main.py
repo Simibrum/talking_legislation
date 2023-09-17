@@ -6,9 +6,13 @@ from concurrent.futures import ThreadPoolExecutor
 from starlette.websockets import WebSocketState
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 
+from backend.common_logic.data_source import LegislationDataSource
+
 app = FastAPI()
 
 executor = ThreadPoolExecutor()
+
+PA1977 = LegislationDataSource('https://www.legislation.gov.uk/ukpga/1977/37/contents/')
 
 
 def slow_function(query: str) -> dict:
@@ -57,7 +61,7 @@ async def websocket_endpoint(websocket: WebSocket):
             await websocket.send_json(response)
 
             # Run the slow function asynchronously
-            task = asyncio.create_task(run_in_executor(slow_function, query))
+            task = asyncio.create_task(run_in_executor(PA1977.get_answers_and_documents, query))
 
             # Wait for it to complete and get the result
             result = await task

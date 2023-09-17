@@ -1,7 +1,9 @@
 """Test for utility functions in utils.py."""
 import os
 from bs4 import BeautifulSoup
-from backend.common_logic.utils import fetch_xml, parse_recursive, flatten_text
+from backend.common_logic.utils import (
+    fetch_xml, parse_recursive, flatten_text, url_to_filename
+)
 from backend.tests.tests_logic import CURRENT_DIR
 
 def test_fetch_xml_success(mocker):
@@ -115,3 +117,8 @@ def test_flatten_text():
     4) For the purposes of subsection (3) above exploitation shall not be regarded as contrary to public policy or morality only because it is prohibited by any law in force in the United Kingdom or any part of it.
     5) The Secretary of State may by order vary the provisions of subsection (2) above for the purpose of maintaining them in conformity with developments in science and technology; and no such order shall be made unless a draft of the order has been laid before, and approved by resolution of, each House of Parliament."""
     assert text == expected_text
+
+def test_url_to_filename():
+    """Test url to filename."""
+    test_url = 'https://www.legislation.gov.uk/ukpga/1977/37/contents/'
+    assert url_to_filename(test_url) == 'www_legislation_gov_uk_ukpga_1977_37_contents_'

@@ -2,8 +2,8 @@
 from typing import Dict, Any, List
 import pickle
 
-from backend.common_logic.utils import fetch_xml, parse_recursive, flatten_text
-
+from backend.common_logic.utils import fetch_xml, parse_recursive, flatten_text, url_to_filename
+from backend.config import DATA_DIR
 
 class UKLegislationParser:
     def __init__(
@@ -169,8 +169,20 @@ class UKLegislationParser:
                     sections.append(item['flattened_text'])
         return sections
 
-    def save(self, filename: str = "parser.pkl"):
+    def get_section_dicts(self) -> List[Dict[str, Any]]:
+        """Return a list of sections as dictionaries."""
+        sections = []
+        for part in self.contents['parts']:
+            for block in part['blocks']:
+                for item in block['items']:
+                    sections.append(item)
+        return sections
+
+    def save(self, filename: str = None):
         """Save the object to a pickle file."""
+        if filename is None:
+            filename = url_to_filename(self.base_url) + ".pkl"
+            filename = DATA_DIR / filename
         with open(filename, 'wb') as f:
             pickle.dump(self, f)
 
