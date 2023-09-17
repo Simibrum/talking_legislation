@@ -1,0 +1,1 @@
+from backend.config.init_logger import logger

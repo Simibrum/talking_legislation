@@ -2,11 +2,15 @@ version: "3.8"
 
 services:
   backend:
+    image: talking_legislation_backend:latest
     build: ./backend
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
     ports:
       - "8000:80"
 
   frontend:
+    image: talking_legislation_frontend:latest
     build: ./frontend
     ports:
       - "3000:80"

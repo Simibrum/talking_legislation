@@ -16,3 +16,9 @@ requests
 
 # Code formatting
 black
+
+# QA / Agent functionality
+langchain
+openai
+tiktoken
+faiss-cpu
