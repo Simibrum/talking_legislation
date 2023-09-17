@@ -60,9 +60,9 @@ function App() {
 
     // Output
     return (
-        <div className="App">
+        <div className="App py-5">
             <header className="App-header">
-                <h1>Legislation Query</h1>
+                <h1>Ask the Patents Act</h1>
             </header>
             <main>
                 <QueryInput setUserQuery={setUserQuery}/>

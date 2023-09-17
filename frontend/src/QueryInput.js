@@ -12,11 +12,12 @@ const QueryInput = ({ setUserQuery }) => {
   };
 
   return (
-    <div className="input-group mb-3">
+    <div className="input-group mb-3 py-3">
       <input
         type="text"
         id="query"
         name="query"
+        autoComplete="off"
         className="form-control form-control-lg"
         placeholder="Ask your question here..."
         aria-label="Ask your question here..."

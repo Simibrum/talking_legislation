@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.centered-line {
+  width: 50%;
+  height: 0;
+  border-bottom: 1px solid #ccc; /* Adjust color as needed */
+  margin: 20px auto; /* Vertical spacing of 20px, and horizontally centered */
+}
