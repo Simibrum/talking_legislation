@@ -1,0 +1,429 @@
+<Legislation xmlns="http://www.legislation.gov.uk/namespaces/legislation"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             DocumentURI="http://www.legislation.gov.uk/ukpga/1977/37"
+             IdURI="http://www.legislation.gov.uk/id/ukpga/1977/37" NumberOfProvisions="245"
+             xsi:schemaLocation="http://www.legislation.gov.uk/namespaces/legislation http://www.legislation.gov.uk/schema/legislation.xsd"
+             SchemaVersion="1.0" RestrictExtent="E+W+S+N.I." RestrictStartDate="2021-04-12">
+    <ukm:Metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dct="http://purl.org/dc/terms/"
+                  xmlns:atom="http://www.w3.org/2005/Atom"
+                  xmlns:ukm="http://www.legislation.gov.uk/namespaces/metadata">
+        <dc:identifier>http://www.legislation.gov.uk/ukpga/1977/37/section/1</dc:identifier>
+        <dc:title>Patents Act 1977</dc:title>
+        <dc:description>An Act to establish a new law of patents applicable to future patents and applications for
+            patents; to amend the law of patents applicable to existing patents and applications for patents; to give
+            effect to certain international conventions on patents; and for connected purposes.
+        </dc:description>
+        <dc:date>1979-04-30</dc:date>
+        <dc:type>text</dc:type>
+        <dc:format>text/xml</dc:format>
+        <dc:language>en</dc:language>
+        <dc:publisher>Statute Law Database</dc:publisher>
+        <dc:modified>2021-08-18</dc:modified>
+        <dc:contributor>Expert Participation</dc:contributor>
+        <dct:valid>2021-04-12</dct:valid>
+
+        <atom:link rel="self" href="http://www.legislation.gov.uk/ukpga/1977/37/section/1/data.xml"
+                   type="application/xml"/>
+        <atom:link rel="http://www.legislation.gov.uk/def/navigation/resources"
+                   href="http://www.legislation.gov.uk/ukpga/1977/37/resources" title="More Resources"/>
+
+
+        <atom:link rel="http://www.legislation.gov.uk/def/navigation/act"
+                   href="http://www.legislation.gov.uk/ukpga/1977/37" title="whole act"/>
+        <atom:link rel="http://www.legislation.gov.uk/def/navigation/introduction"
+                   href="http://www.legislation.gov.uk/ukpga/1977/37/introduction" title="introduction"/>
+        <atom:link rel="http://www.legislation.gov.uk/def/navigation/body"
+                   href="http://www.legislation.gov.uk/ukpga/1977/37/body" title="body"/>
+        <atom:link rel="http://www.legislation.gov.uk/def/navigation/schedules"
+                   href="http://www.legislation.gov.uk/ukpga/1977/37/schedules" title="schedules"/>
+
+
+        <atom:link rel="alternate" type="application/rdf+xml"
+                   href="http://www.legislation.gov.uk/ukpga/1977/37/section/1/data.rdf" title="RDF/XML"/>
+        <atom:link rel="alternate" type="application/akn+xml"
+                   href="http://www.legislation.gov.uk/ukpga/1977/37/section/1/data.akn" title="AKN"/>
+        <atom:link rel="alternate" type="application/xhtml+xml"
+                   href="http://www.legislation.gov.uk/ukpga/1977/37/section/1/data.xht" title="HTML snippet"/>
+        <atom:link rel="alternate" type="text/html"
+                   href="http://www.legislation.gov.uk/ukpga/1977/37/section/1/data.htm"
+                   title="Website (XHTML) Default View"/>
+        <atom:link rel="alternate" type="application/pdf"
+                   href="http://www.legislation.gov.uk/ukpga/1977/37/section/1/data.pdf" title="PDF"/>
+        <atom:link rel="alternate" type="application/akn+xhtml"
+                   href="http://www.legislation.gov.uk/ukpga/1977/37/section/1/data.html" title="HTML5 snippet"/>
+
+
+        <atom:link rel="http://purl.org/dc/terms/tableOfContents" hreflang="en"
+                   href="http://www.legislation.gov.uk/ukpga/1977/37/contents" title="Table of Contents"/>
+
+        <atom:link rel="http://purl.org/dc/terms/replaces"
+                   href="http://www.legislation.gov.uk/ukpga/1977/37/section/1/2000-07-28" title="2000-07-28"/>
+        <atom:link rel="http://purl.org/dc/terms/hasVersion"
+                   href="http://www.legislation.gov.uk/ukpga/1977/37/section/1/enacted" title="enacted"/>
+        <atom:link rel="http://purl.org/dc/terms/hasVersion"
+                   href="http://www.legislation.gov.uk/ukpga/1977/37/section/1/1991-02-01" title="1991-02-01"/>
+        <atom:link rel="http://purl.org/dc/terms/hasVersion"
+                   href="http://www.legislation.gov.uk/ukpga/1977/37/section/1/2000-07-28" title="2000-07-28"/>
+        <atom:link rel="http://purl.org/dc/terms/hasVersion"
+                   href="http://www.legislation.gov.uk/ukpga/1977/37/section/1/2007-12-13" title="2007-12-13"/>
+
+        <atom:link rel="up" href="http://www.legislation.gov.uk/ukpga/1977/37" title="Entire legislation"/>
+        <atom:link rel="prev" href="http://www.legislation.gov.uk/ukpga/1977/37/introduction"
+                   title="Introduction; Introduction"/>
+        <atom:link rel="prevInForce" href="http://www.legislation.gov.uk/ukpga/1977/37/introduction"
+                   title="Introduction; Introduction"/>
+        <atom:link rel="next" href="http://www.legislation.gov.uk/ukpga/1977/37/section/2"
+                   title="Provision; Section 2"/>
+        <atom:link rel="nextInForce" href="http://www.legislation.gov.uk/ukpga/1977/37/section/2"
+                   title="Provision; Section 2"/>
+        <ukm:PrimaryMetadata>
+            <ukm:DocumentClassification>
+                <ukm:DocumentCategory Value="primary"/>
+                <ukm:DocumentMainType Value="UnitedKingdomPublicGeneralAct"/>
+                <ukm:DocumentStatus Value="revised"/>
+            </ukm:DocumentClassification>
+            <ukm:Year Value="1977"/>
+            <ukm:Number Value="37"/>
+            <ukm:EnactmentDate Date="1977-07-29"/>
+            <ukm:UnappliedEffects>
+                <ukm:UnappliedEffect AffectingYear="2004" AffectingNumber="16" AffectedNumber="37"
+                                     URI="http://www.legislation.gov.uk/id/effect/key-92471054b34d2af8d7baa82d561766cf"
+                                     Type="words in s. 63(3) renumbered as s. 63(3)(a)" AffectedYear="1977"
+                                     AffectedURI="http://www.legislation.gov.uk/id/ukpga/1977/37"
+                                     RequiresApplied="false"
+                                     AffectingURI="http://www.legislation.gov.uk/id/ukpga/2004/16"
+                                     AffectingEffectsExtent="S+A+M+E+A+S+A+F+F+E+C+T+E+D" Row="12"
+                                     AffectedExtent="E+W+S+N.I." AffectingClass="UnitedKingdomPublicGeneralAct"
+                                     Notes="Amendment not applied to legislation.gov.uk. S. 2(4) was repealed (29.4.2006) by S.I. 2006/1028, art. 2(4), Sch. 4"
+                                     AffectingProvisions="s. 2(4)"
+                                     Comments="Amendment not applied to legislation.gov.uk. S. 2(4) was repealed (29.4.2006) by S.I. 2006/1028, art. 2(4), Sch. 4"
+                                     AffectedProvisions="s. 63(3)(a)" Modified="2018-06-13T16:20:03Z"
+                                     EffectId="key-92471054b34d2af8d7baa82d561766cf"
+                                     AffectedClass="UnitedKingdomPublicGeneralAct">
+                    <ukm:AffectedTitle>Patents Act 1977</ukm:AffectedTitle>
+                    <ukm:AffectedProvisions>
+                        <ukm:Section Ref="section-63-3-a"
+                                     URI="http://www.legislation.gov.uk/id/ukpga/1977/37/section/63/3/a"
+                                     FoundRef="section-63">s. 63(3)(a)
+                        </ukm:Section>
+                    </ukm:AffectedProvisions>
+                    <ukm:AffectingTitle>Patents Act 2004</ukm:AffectingTitle>
+                    <ukm:AffectingProvisions>
+                        <ukm:Section Ref="section-2-4" URI="http://www.legislation.gov.uk/id/ukpga/2004/16/section/2/4">
+                            s. 2(4)
+                        </ukm:Section>
+                    </ukm:AffectingProvisions>
+                    <ukm:CommencementAuthority>
+                        <ukm:Section Ref="section-17-1"
+                                     URI="http://www.legislation.gov.uk/id/ukpga/2004/16/section/17/1">s. 17(1)
+                        </ukm:Section>
+                    </ukm:CommencementAuthority>
+                    <ukm:InForceDates>
+                        <ukm:InForce Prospective="true" Qualification=""/>
+                    </ukm:InForceDates>
+                </ukm:UnappliedEffect>
+                <ukm:UnappliedEffect AffectedYear="1977"
+                                     Comments="Amendment not applied to legislation.gov.uk. S. 2(4) was repealed (29.4.2006) by S.I. 2006/1028, art. 2(4), Sch. 4"
+                                     AffectedNumber="37" AffectedURI="http://www.legislation.gov.uk/id/ukpga/1977/37"
+                                     AffectingYear="2004" AffectedExtent="E+W+S+N.I."
+                                     AffectingEffectsExtent="S+A+M+E+A+S+A+F+F+E+C+T+E+D" AffectingProvisions="s. 2(4)"
+                                     EffectId="key-24c8e8128d7d4605eeec6fd8b612fd97" Modified="2018-06-13T16:20:03Z"
+                                     AffectingClass="UnitedKingdomPublicGeneralAct"
+                                     AffectingURI="http://www.legislation.gov.uk/id/ukpga/2004/16"
+                                     AffectedProvisions="s. 63(3)(b) and word"
+                                     AffectedClass="UnitedKingdomPublicGeneralAct" Type="inserted"
+                                     RequiresApplied="false"
+                                     Notes="Amendment not applied to legislation.gov.uk. S. 2(4) was repealed (29.4.2006) by S.I. 2006/1028, art. 2(4), Sch. 4"
+                                     Row="13"
+                                     URI="http://www.legislation.gov.uk/id/effect/key-24c8e8128d7d4605eeec6fd8b612fd97"
+                                     AffectingNumber="16">
+                    <ukm:AffectedTitle>Patents Act 1977</ukm:AffectedTitle>
+                    <ukm:AffectedProvisions>
+                        <ukm:Section Ref="section-63-3-b"
+                                     URI="http://www.legislation.gov.uk/id/ukpga/1977/37/section/63/3/b"
+                                     FoundRef="section-63">s. 63(3)(b)
+                        </ukm:Section>
+                        and word
+                    </ukm:AffectedProvisions>
+                    <ukm:AffectingTitle>Patents Act 2004</ukm:AffectingTitle>
+                    <ukm:AffectingProvisions>
+                        <ukm:Section Ref="section-2-4" URI="http://www.legislation.gov.uk/id/ukpga/2004/16/section/2/4">
+                            s. 2(4)
+                        </ukm:Section>
+                    </ukm:AffectingProvisions>
+                    <ukm:CommencementAuthority>
+                        <ukm:Section Ref="section-17-1"
+                                     URI="http://www.legislation.gov.uk/id/ukpga/2004/16/section/17/1">s. 17(1)
+                        </ukm:Section>
+                    </ukm:CommencementAuthority>
+                    <ukm:InForceDates>
+                        <ukm:InForce Prospective="true" Qualification=""/>
+                    </ukm:InForceDates>
+                </ukm:UnappliedEffect>
+                <ukm:UnappliedEffect AffectedNumber="37" AffectedExtent="E+W+S+N.I."
+                                     AffectingURI="http://www.legislation.gov.uk/id/uksi/2006/1056" AffectedYear="1977"
+                                     AffectingEffectsExtent="E+W+N.I." AffectingYear="2006" Row="8"
+                                     AffectingProvisions="Sch. para. 2(b)" Type="added"
+                                     URI="http://www.legislation.gov.uk/id/effect/key-0c95de3ea31e2a30a3108b3055805bab"
+                                     Modified="2018-06-13T16:20:03Z"
+                                     AffectedURI="http://www.legislation.gov.uk/id/ukpga/1977/37" AffectingNumber="1056"
+                                     AffectedProvisions="s. 56(4)(a)(iiia) and word"
+                                     Notes="This amendment comes into force on the day on which 2005 asp 13, s. 20 comes into force, see art. 1(2)(b)"
+                                     RequiresApplied="true" EffectId="key-0c95de3ea31e2a30a3108b3055805bab"
+                                     AffectingClass="UnitedKingdomStatutoryInstrument"
+                                     AffectedClass="UnitedKingdomPublicGeneralAct">
+                    <ukm:AffectedTitle>Patents Act 1977</ukm:AffectedTitle>
+                    <ukm:AffectedProvisions>
+                        <ukm:Section Ref="section-56-4-a"
+                                     URI="http://www.legislation.gov.uk/id/ukpga/1977/37/section/56/4/a">s. 56(4)(a)
+                        </ukm:Section>
+                        <ukm:Section Ref="section-56-4-iiia"
+                                     URI="http://www.legislation.gov.uk/id/ukpga/1977/37/section/56/4/iiia"
+                                     FoundRef="section-56">(iiia)
+                        </ukm:Section>
+                        and word
+                    </ukm:AffectedProvisions>
+                    <ukm:AffectingTitle>The Smoking, Health and Social Care (Scotland) Act 2005 (Consequential
+                        Modifications) (England, Wales and Northern Ireland) Order 2006
+                    </ukm:AffectingTitle>
+                    <ukm:AffectingProvisions>
+                        <ukm:Section Ref="schedule" URI="http://www.legislation.gov.uk/id/uksi/2006/1056/schedule">
+                            Sch.
+                        </ukm:Section>
+                        <ukm:Section Ref="schedule-paragraph-2-b"
+                                     URI="http://www.legislation.gov.uk/id/uksi/2006/1056/schedule/paragraph/2/b">para.
+                            2(b)
+                        </ukm:Section>
+                    </ukm:AffectingProvisions>
+                    <ukm:CommencementAuthority>
+                        <ukm:Section Ref="article-1-2-b"
+                                     URI="http://www.legislation.gov.uk/id/uksi/2006/1056/article/1/2/b">art. 1(2)(b)
+                        </ukm:Section>
+                    </ukm:CommencementAuthority>
+                    <ukm:InForceDates>
+                        <ukm:InForce Applied="false" Prospective="true" Qualification=""/>
+                    </ukm:InForceDates>
+                </ukm:UnappliedEffect>
+            </ukm:UnappliedEffects>
+        </ukm:PrimaryMetadata>
+
+
+        <ukm:Alternatives>
+            <ukm:Alternative URI="http://www.legislation.gov.uk/ukpga/1977/37/pdfs/ukpga_19770037_en.pdf"
+                             Date="2019-07-23" Size="15552264"/>
+        </ukm:Alternatives>
+
+        <ukm:Statistics>
+            <ukm:TotalParagraphs Value="245"/>
+            <ukm:BodyParagraphs Value="166"/>
+            <ukm:ScheduleParagraphs Value="79"/>
+            <ukm:AttachmentParagraphs Value="0"/>
+            <ukm:TotalImages Value="2"/>
+        </ukm:Statistics>
+    </ukm:Metadata>
+    <Primary>
+        <Body DocumentURI="http://www.legislation.gov.uk/ukpga/1977/37/body"
+              IdURI="http://www.legislation.gov.uk/id/ukpga/1977/37/body" NumberOfProvisions="166"
+              RestrictStartDate="2021-04-12">
+            <Part DocumentURI="http://www.legislation.gov.uk/ukpga/1977/37/part/I"
+                  IdURI="http://www.legislation.gov.uk/id/ukpga/1977/37/part/I" NumberOfProvisions="94" id="part-I"
+                  RestrictExtent="E+W+S+N.I." RestrictStartDate="2018-04-01">
+                <Number>Part I</Number>
+                <Title>New Domestic Law</Title>
+                <Pblock DocumentURI="http://www.legislation.gov.uk/ukpga/1977/37/part/I/crossheading/patentability"
+                        IdURI="http://www.legislation.gov.uk/id/ukpga/1977/37/part/I/crossheading/patentability"
+                        NumberOfProvisions="7" id="part-I-crossheading-patentability" RestrictExtent="E+W+S+N.I."
+                        RestrictStartDate="2014-10-01">
+                    <Title>Patentability</Title>
+                    <P1group RestrictExtent="E+W+S+N.I." ConfersPower="true" RestrictStartDate="2007-12-13">
+                        <Title>Patentable inventions.</Title>
+                        <P1 DocumentURI="http://www.legislation.gov.uk/ukpga/1977/37/section/1"
+                            IdURI="http://www.legislation.gov.uk/id/ukpga/1977/37/section/1" id="section-1">
+                            <Pnumber>1</Pnumber>
+                            <P1para>
+                                <P2 DocumentURI="http://www.legislation.gov.uk/ukpga/1977/37/section/1/1"
+                                    IdURI="http://www.legislation.gov.uk/id/ukpga/1977/37/section/1/1" id="section-1-1">
+                                    <Pnumber>1</Pnumber>
+                                    <P2para>
+                                        <Text>A patent may be granted only for an invention in respect of which the
+                                            following conditions are satisfied, that is to say—
+                                        </Text>
+                                        <P3 DocumentURI="http://www.legislation.gov.uk/ukpga/1977/37/section/1/1/a"
+                                            IdURI="http://www.legislation.gov.uk/id/ukpga/1977/37/section/1/1/a"
+                                            id="section-1-1-a">
+                                            <Pnumber>a</Pnumber>
+                                            <P3para>
+                                                <Text>the invention is new;</Text>
+                                            </P3para>
+                                        </P3>
+                                        <P3 DocumentURI="http://www.legislation.gov.uk/ukpga/1977/37/section/1/1/b"
+                                            IdURI="http://www.legislation.gov.uk/id/ukpga/1977/37/section/1/1/b"
+                                            id="section-1-1-b">
+                                            <Pnumber>b</Pnumber>
+                                            <P3para>
+                                                <Text>it involves an inventive step;</Text>
+                                            </P3para>
+                                        </P3>
+                                        <P3 DocumentURI="http://www.legislation.gov.uk/ukpga/1977/37/section/1/1/c"
+                                            IdURI="http://www.legislation.gov.uk/id/ukpga/1977/37/section/1/1/c"
+                                            id="section-1-1-c">
+                                            <Pnumber>c</Pnumber>
+                                            <P3para>
+                                                <Text>it is capable of industrial application;</Text>
+                                            </P3para>
+                                        </P3>
+                                        <P3 DocumentURI="http://www.legislation.gov.uk/ukpga/1977/37/section/1/1/d"
+                                            IdURI="http://www.legislation.gov.uk/id/ukpga/1977/37/section/1/1/d"
+                                            id="section-1-1-d">
+                                            <Pnumber>d</Pnumber>
+                                            <P3para>
+                                                <Text>the grant of a patent for it is not excluded by subsections (2)
+                                                    and (3) <Addition
+                                                            ChangeId="key-1225aa8783c804b236b0a4a4c2b9ab5b-1508324903224"
+                                                            CommentaryRef="key-1225aa8783c804b236b0a4a4c2b9ab5b">or
+                                                        section 4A
+                                                    </Addition>  below;
+                                                </Text>
+                                            </P3para>
+                                        </P3>
+                                        <Text>and references in this Act to a patentable invention shall be construed
+                                            accordingly.
+                                        </Text>
+                                    </P2para>
+                                </P2>
+                                <P2 DocumentURI="http://www.legislation.gov.uk/ukpga/1977/37/section/1/2"
+                                    IdURI="http://www.legislation.gov.uk/id/ukpga/1977/37/section/1/2" id="section-1-2">
+                                    <Pnumber>2</Pnumber>
+                                    <P2para>
+                                        <Text>It is hereby declared that the following (among other things) are not
+                                            inventions for the purposes of this Act, that is to say, anything which
+                                            consists of—
+                                        </Text>
+                                        <P3 DocumentURI="http://www.legislation.gov.uk/ukpga/1977/37/section/1/2/a"
+                                            IdURI="http://www.legislation.gov.uk/id/ukpga/1977/37/section/1/2/a"
+                                            id="section-1-2-a">
+                                            <Pnumber>a</Pnumber>
+                                            <P3para>
+                                                <Text>a discovery, scientific theory or mathematical method;</Text>
+                                            </P3para>
+                                        </P3>
+                                        <P3 DocumentURI="http://www.legislation.gov.uk/ukpga/1977/37/section/1/2/b"
+                                            IdURI="http://www.legislation.gov.uk/id/ukpga/1977/37/section/1/2/b"
+                                            id="section-1-2-b">
+                                            <Pnumber>b</Pnumber>
+                                            <P3para>
+                                                <Text>a literary, dramatic, musical or artistic work or any other
+                                                    aesthetic creation whatsoever;
+                                                </Text>
+                                            </P3para>
+                                        </P3>
+                                        <P3 DocumentURI="http://www.legislation.gov.uk/ukpga/1977/37/section/1/2/c"
+                                            IdURI="http://www.legislation.gov.uk/id/ukpga/1977/37/section/1/2/c"
+                                            id="section-1-2-c">
+                                            <Pnumber>c</Pnumber>
+                                            <P3para>
+                                                <Text>a scheme, rule or method for performing a mental act, playing a
+                                                    game or doing business, or a program for a computer;
+                                                </Text>
+                                            </P3para>
+                                        </P3>
+                                        <P3 DocumentURI="http://www.legislation.gov.uk/ukpga/1977/37/section/1/2/d"
+                                            IdURI="http://www.legislation.gov.uk/id/ukpga/1977/37/section/1/2/d"
+                                            id="section-1-2-d">
+                                            <Pnumber>d</Pnumber>
+                                            <P3para>
+                                                <Text>the presentation of information;</Text>
+                                            </P3para>
+                                        </P3>
+                                        <Text>but the foregoing provision shall prevent anything from being treated as
+                                            an invention for the purposes of this Act only to the extent that a patent
+                                            or application for a patent relates to that thing as such.
+                                        </Text>
+                                    </P2para>
+                                </P2>
+                                <P2 DocumentURI="http://www.legislation.gov.uk/ukpga/1977/37/section/1/3"
+                                    IdURI="http://www.legislation.gov.uk/id/ukpga/1977/37/section/1/3" id="section-1-3">
+                                    <Pnumber>
+                                        <Addition ChangeId="d29p123" CommentaryRef="c8019941">3</Addition>
+                                    </Pnumber>
+                                    <P2para>
+                                        <Text>
+                                            <Addition ChangeId="d29p123" CommentaryRef="c8019941">A patent shall not be
+                                                granted for an invention the commercial exploitation of which would be
+                                                contrary to public policy or morality.
+                                            </Addition>
+                                        </Text>
+                                    </P2para>
+                                </P2>
+                                <P2 DocumentURI="http://www.legislation.gov.uk/ukpga/1977/37/section/1/4"
+                                    IdURI="http://www.legislation.gov.uk/id/ukpga/1977/37/section/1/4" id="section-1-4">
+                                    <Pnumber>
+                                        <Addition ChangeId="d29p123" CommentaryRef="c8019941">4</Addition>
+                                    </Pnumber>
+                                    <P2para>
+                                        <Text>
+                                            <Addition ChangeId="d29p123" CommentaryRef="c8019941">For the purposes of
+                                                subsection (3) above exploitation shall not be regarded as contrary to
+                                                public policy or morality only because it is prohibited by any law in
+                                                force in the United Kingdom or any part of it.
+                                            </Addition>
+                                        </Text>
+                                    </P2para>
+                                </P2>
+                                <P2 DocumentURI="http://www.legislation.gov.uk/ukpga/1977/37/section/1/5"
+                                    IdURI="http://www.legislation.gov.uk/id/ukpga/1977/37/section/1/5" id="section-1-5">
+                                    <Pnumber>5</Pnumber>
+                                    <P2para>
+                                        <Text>The Secretary of State may by order vary the provisions of subsection (2)
+                                            above for the purpose of maintaining them in conformity with developments in
+                                            science and technology; and no such order shall be made unless a draft of
+                                            the order has been laid before, and approved by resolution of, each House of
+                                            Parliament.
+                                        </Text>
+                                    </P2para>
+                                </P2>
+                            </P1para>
+                        </P1>
+                    </P1group>
+                </Pblock>
+            </Part>
+        </Body>
+    </Primary>
+    <Commentaries>
+        <Commentary id="c8019941" Type="F">
+            <Para>
+                <Text>S. 1(3)(4) substituted (28.7.2000) by <Citation
+                        URI="http://www.legislation.gov.uk/id/uksi/2000/2037" id="c00013"
+                        Class="UnitedKingdomStatutoryInstrument" Year="2000" Number="2037">S.I. 2000/2037</Citation>,
+                    <CitationSubRef id="c00014" CitationRef="c00013"
+                                    URI="http://www.legislation.gov.uk/id/uksi/2000/2037/regulation/3" Operative="true"
+                                    SectionRef="regulation-3">reg. 3
+                    </CitationSubRef>
+                </Text>
+            </Para>
+        </Commentary>
+        <Commentary id="key-1225aa8783c804b236b0a4a4c2b9ab5b" Type="F">
+            <Para>
+                <Text>Words in s. 1(1)(d) inserted (13.12.2007) by <Citation
+                        URI="http://www.legislation.gov.uk/id/ukpga/2004/16" id="cqj8w3ki2-00007"
+                        Class="UnitedKingdomPublicGeneralAct" Year="2004" Number="16" Title="Patents Act 2004">Patents
+                    Act 2004 (c. 16)</Citation>, <CitationSubRef id="cqj8w3ki2-00008" CitationRef="cqj8w3ki2-00007"
+                                                                 URI="http://www.legislation.gov.uk/id/ukpga/2004/16/section/17/1"
+                                                                 SectionRef="section-17-1">s.
+                    17(1)</CitationSubRef>, <CitationSubRef id="cqj8w3ki2-00009" CitationRef="cqj8w3ki2-00007"
+                                                            URI="http://www.legislation.gov.uk/id/ukpga/2004/16/schedule/2/paragraph/2"
+                                                            SectionRef="schedule-2-paragraph-2" Operative="true">Sch. 2
+                    para. 2</CitationSubRef>; <Citation URI="http://www.legislation.gov.uk/id/uksi/2007/3396"
+                                                        id="cqj8w3ki2-00010" Class="UnitedKingdomStatutoryInstrument"
+                                                        Year="2007" Number="3396"
+                                                        Title="The Patents Act 2004 (Commencement No. 4 and Transitional Provisions) Order 2007">
+                    S.I. 2007/3396</Citation>,
+                    <CitationSubRef id="cqj8w3ki2-00011" CitationRef="cqj8w3ki2-00010"
+                                    URI="http://www.legislation.gov.uk/id/uksi/2007/3396/article/2/l"
+                                    SectionRef="article-2-l">art. 2(l)
+                    </CitationSubRef>
+                </Text>
+            </Para>
+        </Commentary>
+    </Commentaries>
+</Legislation>
