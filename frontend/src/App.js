@@ -78,7 +78,7 @@ function App() {
                 webSocket.close();
             }
         };
-    }, [userQuery, isReset, webSocket]);
+    }, [userQuery, isReset, webSocket, resetApp]);
 
 
     const handleReset = () => {
